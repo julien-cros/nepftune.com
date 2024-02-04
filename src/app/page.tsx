@@ -5,7 +5,7 @@ export default function Home() {
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
      <div>
-			<p className="text-3xl text-brown">hello</p>
+			<p className="text-9xl text-brown-dark">hello</p>
 		 </div>
     </main>
   );

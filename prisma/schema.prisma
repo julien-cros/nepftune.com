@@ -9,3 +9,21 @@ datasource db {
   provider = "sqlite"
   url      = env("DATABASE_URL")
 }
+
+model Album {
+	id			String	 @id @default(cuid())
+	title String
+	description String
+	posts	Post[]
+}
+
+
+model Post {
+  id			String	 @id @default(cuid()) 
+  title     String
+	description	String
+  image String
+	createdAt	DateTime @default(now())
+	album	Album? @relation(fields: [albumId], references: [id])
+	albumId	String?
+}
