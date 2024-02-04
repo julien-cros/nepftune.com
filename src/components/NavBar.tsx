@@ -14,7 +14,7 @@ const NavBar = () => {
 	return (
 		<div className={`
 		${isOpen ? 'w-52' : 'w-20'}
-		absolute top-0 left-0 duration-300 bg-white shadow-md`}
+		absolute top-0 left-0 duration-300 bg-white shadow-md z-40`}
 		onMouseOver={() => setIsOpen( true)}
 		onMouseOut={() => setIsOpen( false)}
 	>
