@@ -17,6 +17,7 @@ const config: Config = {
 				'brown': '#A08479',
 				'brown-light': '#C0A89E',
 				'brown-dark': '#62534D',
+				'pink-brown': '#D3BCB3',
 			},
     },
   },
