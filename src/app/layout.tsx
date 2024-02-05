@@ -1,13 +1,19 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Marcellus } from "next/font/google";
 import "./globals.css";
 import localFont from "next/font/local";
 import NavBar from "@/components/NavBar";
 
-const inter = Inter({ subsets: ["latin"] });
+const marcellus = Marcellus({ 
+	subsets: ["latin"],
+	weight: ["400"],
+	variable: "--font-marcellus",
+ });
 
 const myFont = localFont({
 	src: "../../fonts/BrownSugar.ttf",
+	variable: "--font-brownSugar",
+
 })
 
 export const metadata: Metadata = {
@@ -22,7 +28,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={myFont.className}>
+      <body className={`${myFont.className} ${marcellus.variable}`}>
 			<NavBar />
 				{children}
 			</body>

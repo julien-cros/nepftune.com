@@ -2,6 +2,7 @@ import Button from "@/components/Button";
 import NavBar from "@/components/NavBar";
 import Image from "next/image";
 
+
 export default function Home() {
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
@@ -26,12 +27,12 @@ export default function Home() {
       </div>
 			<div className="h-screen w-full grid  md:grid-cols-4  lg:grid-cols-3">
       <div className=" w-full flex justify-center items-center">
-        <p>
+        <h1 className="description" >
           Is simply dummy text of the printing and typesetting industry. Lorem
           Ipsum has been the industry's standard dummy text ever since the
           1500s, when an unknown printer took a galley of type and scrambled it
           to make a type .
-        </p>
+        </h1>
       </div>
 			</div>
       <div>
