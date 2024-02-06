@@ -18,6 +18,7 @@ const config: Config = {
 				'brown-light': '#C0A89E',
 				'brown-dark': '#62534D',
 				'pink-brown': '#D3BCB3',
+				'light-yellow': '#fffaf1',
 			},
     },
   },

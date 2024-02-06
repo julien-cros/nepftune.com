@@ -39,3 +39,8 @@ body {
 .description {
 	font-family: var(--font-marcellus);
 }
+
+/* TODO: need to modify font of input with marcellus */
+input[type="text"], [type="password"]{ 
+	font-family: monospace;
+}
