@@ -1,16 +1,16 @@
+'use client'
+
+import LogInFrom from '@/components/form/LogInFrom'
+import Link from 'next/link'
 import React from 'react'
 
 const login = () => {
 	return (
 		<div className='flex flex-col items-center  min-h-screen w-full justify-center gap-10'>
-			<div className=''>
-					<input type="text" placeholder='email:' className='bg-light-yellow border-b-[1px] border-brown-light focus:outline-none' />
-			</div>
-			<div>
-				<input type='password' placeholder='password' className='bg-light-yellow border-b-[1px] border-brown-light focus:outline-none description'/>
-			</div>
-			<div>
-				<button className='text-brown-dark text-lg'>login</button>
+			<LogInFrom />
+			<div className='absolute bottom-10 right-10'>
+				<Link className='text-lg text-brown-dark' href='/reset-password'
+				>forgot your passwor</Link>
 			</div>
 		</div>
 	)
