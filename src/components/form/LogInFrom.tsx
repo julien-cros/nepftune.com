@@ -17,11 +17,9 @@ const LogInFrom = () => {
 		console.log(form);
 		const responce = await logIn(form);
 		if (responce === true) {
-			console.log('logged in');
 			return router.push('/dashboard');
 		}
 		else {
-			console.log('something went wrong');
 			alert('Something went wrong');
 			return router.push('/');
 		}

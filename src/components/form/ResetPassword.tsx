@@ -1,35 +1,39 @@
 'use client'
 
-import { logIn } from '@/lib/action';
+import { resetPassword } from '@/lib/action';
 import { useRouter } from 'next/navigation'
 import React, { useState } from 'react'
 import { FormState } from './LogInFrom';
 
 
+export type FormResetState = {
+	email: string;
+	password: string;
+	confirmPassword: string;
+}
+
 const ResetPassword = () => {
 	const router = useRouter();
 
 	const handleFormSubmit = async () => {
-		console.log(form);
-		const responce = await logIn(form);
+		const responce = await resetPassword(form);
 		if (responce === true) {
-			console.log('logged in');
 			return router.push('/dashboard');
 		}
 		else {
-			console.log('something went wrong');
 			alert('Something went wrong');
 			return router.push('/');
 		}
 	}
 
-	const [form] = useState<FormState>({
+	const [form] = useState<FormResetState>({
 		email: "",
 		password: "",
+		confirmPassword: "",
 	})
 
 	const handleStateChange = (
-		fieldName: keyof FormState,
+		fieldName: keyof FormResetState,
 		value: string,
 	) => {
 		form[fieldName] = value;
@@ -70,7 +74,7 @@ const ResetPassword = () => {
 			</div>
 			<button
 				type='submit'
-				className=' text-brown-dark text-lg font-extrabold'
+				className='text-brown-dark text-lg font-extrabold'
 			>
 				Reset Password
 			</button>

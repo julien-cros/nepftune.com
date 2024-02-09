@@ -2,6 +2,7 @@
 
 import { FormState } from "@/components/form/LogInFrom";
 import { db } from "./db";
+const bcrypt = require('bcrypt');
 
 
 const isProduction = process.env.NODE_ENV === "production";
@@ -10,13 +11,17 @@ export const logIn = async (data: FormState) => {
 	const responce = await db.user.findFirstOrThrow({
 		where: {
 			email: data.email,
-			password: data.password
 		}
 	});
 	if (!responce) {
 		return false;
 	}
-	console.log(responce);
+
+	const match = await bcrypt.compare(data.password, responce.password);
+	if (!match) {
+			console.log('Password does not match');
+		return false;
+	}
 	return true;
 };
 
@@ -35,7 +40,7 @@ export const resetPassword = async (data: FormState) => {
 			email: data.email,
 		},
 		data: {
-			password: data.password,
+			password: await bcrypt.hash(data.password, 10),
 		}
 	});
 	if (!newPassword) {
