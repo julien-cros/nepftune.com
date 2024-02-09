@@ -46,7 +46,7 @@ const LogInFrom = () => {
       document.cookie = `token=${token}; path=/`;
       router.push("/dashboard");
     } catch (error) {
-      console.error(error);
+			alert('login failed');
     }
 	}
 

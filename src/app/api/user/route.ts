@@ -18,11 +18,11 @@ export async function POST(req: Request) {
     });
 
     if (!user) {
-      return new Error("Invalid email");
+      return new Response("Invalid email");
     }
     const match = await bcrypt.compare(password, user.password);
     if (!match) {
-      return new Error("Invalid password");
+      return new Response("Invalid password");
     }
 
     const token = jwt.sign({ userId: user.id }, process.env.JWT_SECRET, {
@@ -40,7 +40,8 @@ export async function POST(req: Request) {
       }
     );
   } catch (error) {
-    console.error(error);
-    return new Error("Something went wrong");
+    return new Response("Login failed", {
+			status: 500,
+		});
   }
 }
