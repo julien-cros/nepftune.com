@@ -13,18 +13,6 @@ export type FormState = {
 const LogInFrom = () => {
 	const router = useRouter();
 
-	const handleFormSubmit = async () => {
-		console.log(form);
-		const responce = await logIn(form);
-		if (responce === true) {
-			return router.push('/dashboard');
-		}
-		else {
-			alert('Something went wrong');
-			return router.push('/');
-		}
-	}
-
 	const [form] = useState<FormState>({
 		email: "",
 		password: "",
@@ -37,6 +25,32 @@ const LogInFrom = () => {
 		form[fieldName] = value;
   };
 
+
+	const handleFormSubmit = async () => {
+
+		try {
+      const response = await fetch("/api/user", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          email: form.email,
+          password: form.password,
+        }),
+      });
+
+      if (!response.ok) throw new Error("Login failed");
+
+      const { token } = await response.json();
+      document.cookie = `token=${token}; path=/`;
+      router.push("/dashboard");
+    } catch (error) {
+      console.error(error);
+    }
+	}
+
+	
 
 	return (
 		<form className="flex flex-col items-center justify-center gap-10"
