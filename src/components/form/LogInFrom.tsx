@@ -25,7 +25,7 @@ const LogInFrom = () => {
 		form[fieldName] = value;
   };
 
-
+// TODO: create alert component and message error password or email
 	const handleFormSubmit = async () => {
 
 		try {
@@ -40,7 +40,9 @@ const LogInFrom = () => {
         }),
       });
 
-      if (!response.ok) throw new Error("Login failed");
+      if (!response.ok)
+				router.push('/login')
+			;
 
       const { token } = await response.json();
       document.cookie = `token=${token}; path=/`;

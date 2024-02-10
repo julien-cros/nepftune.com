@@ -1,6 +1,8 @@
+'use server';
+
 import { NextResponse } from "next/server";
+import { headers } from "next/headers";
 import { db } from "@/lib/db";
-import { json } from "stream/consumers";
 import jwt from "jsonwebtoken";
 const bcrypt = require("bcrypt");
 
@@ -8,8 +10,6 @@ export async function POST(req: Request) {
   try {
     const body = await req.json();
     const { email, password } = body;
-
-    console.log(email);
 
     const user = await db.user.findUnique({
       where: {
@@ -44,4 +44,57 @@ export async function POST(req: Request) {
 			status: 500,
 		});
   }
+}
+
+
+export async function GET(req: Request) {
+	const token = req.headers.get("Authorization");
+	
+	if (!token) {
+		return new Response("Unauthorized", {
+			status: 401,
+		});
+	}
+	
+	try {
+		const HeaderInstance = headers();
+		const authHeader = HeaderInstance.get("Authorization");
+		
+		if (!authHeader) {
+			return new Response("Unauthorized", {
+				status: 401,
+			});
+		}
+	
+		const token = authHeader.split(" ")[1];
+		
+		const decoded = jwt.verify(token, process.env.JWT_SECRET);
+		const user = await db.user.findUnique({
+			where: {
+				id: decoded.userId,
+			},
+		});
+
+		if (!user) {
+			return new Response("Unauthorized", {
+				status: 401,
+			});
+		}
+
+		return new Response(
+			JSON.stringify({
+				user,
+			}),
+			{
+				headers: {
+					"Content-Type": "application/json",
+				},
+				status: 200,
+			}
+		);
+	} catch (error) {
+		return new Response("Unauthorized", {
+			status: 401,
+		});
+	}
 }
