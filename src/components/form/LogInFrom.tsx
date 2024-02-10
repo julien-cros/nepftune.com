@@ -3,6 +3,7 @@
 import { logIn } from '@/lib/action';
 import { useRouter } from 'next/navigation'
 import React, { useState } from 'react'
+import { EyeIcon, EyeSlashIcon } from "@heroicons/react/24/solid";
 
 
 export type FormState = {
@@ -12,6 +13,8 @@ export type FormState = {
 
 const LogInFrom = () => {
 	const router = useRouter();
+
+	const [showPassword, setShowPassword] = useState(false);
 
 	const [form] = useState<FormState>({
 		email: "",
@@ -55,8 +58,7 @@ const LogInFrom = () => {
 	
 
 	return (
-		<form className="flex flex-col items-center justify-center gap-10"
-		action={handleFormSubmit}
+		<form className="flex flex-col justify-center items-center gap-10"
 		onSubmit={() => {
 			handleFormSubmit();
 		}}
@@ -69,22 +71,34 @@ const LogInFrom = () => {
 						onChange={(e) => handleStateChange('email', e.target.value)}
 					/>
 			</div>
-			<div>
+			<div className='flex flex-row pl-6'>
 				<input
-					type='password'
+					type={showPassword ? 'text' : 'password'}
 					placeholder='password'
 					className='bg-light-yellow border-b-[1px] border-brown-light focus:outline-none description'
 					onChange={(e) => handleStateChange('password', e.target.value)}
 					/>
+					<div className=''>
+						{ showPassword ?
+							<EyeIcon
+								className='w-6 h-6'
+								type='button'
+								onClick={() => setShowPassword(!showPassword)}
+							/>
+							:
+							<EyeSlashIcon
+								className='w-6 h-6'
+								type='button'
+								onClick={() => setShowPassword(!showPassword)}
+							/>
+
+						}
+						</div>
 			</div>
 			<div>
 				<button className='text-brown-dark text-lg font-extrabold'
 					type='submit'
-
 				>login</button>
-			</div>
-			<div className='absolute bottom-10 right-10'>
-				<button className='text-lg text-brown-dark'>forgot your password</button>
 			</div>
 		</form>
 	)
