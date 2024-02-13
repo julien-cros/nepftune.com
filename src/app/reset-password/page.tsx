@@ -43,15 +43,15 @@ const page = () => {
 			<p className='text-2xl text-brown'>Reset your password</p>
 			<input type="text" 
 			placeholder='email:'
-			className='bg-light-yellow border-b-[1px] border-brown-light focus:outline-none description'
+			className='bg-yellow-light border-b-[1px] border-brown-light focus:outline-none marcellus'
 			onChange={(e) => setEmail(e.target.value)}
 			/>
 			<button className='text-brown-dark text-lg font-extrabold' onClick={() => checkEmail()} >Send</button>
 		<Link className="absolute bottom-10 right-10 text-lg text-brown-dark" href="/login">
 			login
 		</Link>
-		{success && !error && <p className='w-64 h-auto description bg-green-100 text-green-600 p-4 rounded-md'>email sent! Check your mails, your spam or retry in one minute.</p>}
-		{error && !success && <p className='w-64 h-auto description bg-red-100 text-red-600 p-4 rounded-md'>invalid email.</p>}
+		{success && !error && <p className='w-64 h-auto marcellus bg-green-100 text-green-600 p-4 rounded-md'>email sent! Check your mails, your spam or retry in one minute.</p>}
+		{error && !success && <p className='w-64 h-auto marcellus bg-red-100 text-red-600 p-4 rounded-md'>invalid email.</p>}
 	</div>
 	)
 }

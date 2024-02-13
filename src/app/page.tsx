@@ -29,7 +29,7 @@ export default function Home() {
         />
       </div>
 			<div className="h-screen w-full lg:grid lg:grid-cols-4 md:px-10 py-32">
-        <h1 className=" w-full h-full flex justify-center items-center description z-10" >
+        <h1 className=" w-full h-full flex justify-center items-center marcellus z-10" >
           Is simply dummy text of the printing and typesetting industry. Lorem
           Ipsum has been the industry's standard dummy text ever since the
           1500s, when an unknown printer took a galley of type and scrambled it

@@ -67,7 +67,7 @@ const ResetPassword = () => {
         <input
           type={showPassword ? "text" : "password"}
           placeholder="password"
-          className="bg-light-yellow border-b-[1px] border-brown-light focus:outline-none"
+          className="bg-yellow-light border-b-[1px] border-brown-light focus:outline-none"
           onChange={(e) => handleStateChange("password", e.target.value)}
         />
         {showPassword ? (
@@ -87,7 +87,7 @@ const ResetPassword = () => {
         <input
           type={showConfirmPassword ? "text" : "password"}
           placeholder="confirm password"
-          className="bg-light-yellow border-b-[1px] border-brown-light focus:outline-none"
+          className="bg-yellow-light border-b-[1px] border-brown-light focus:outline-none"
           onChange={(e) => handleStateChange("confirmPassword", e.target.value)}
         />
         {showConfirmPassword ? (
@@ -106,7 +106,7 @@ const ResetPassword = () => {
         Reset Password
       </button>
       {!passordMatch && (
-        <p className="w-64 h-auto description bg-red-100 text-red-600 p-4 rounded-md">
+        <p className="w-64 h-auto marcellus bg-red-100 text-red-600 p-4 rounded-md">
           passwords do not match
         </p>
       )}

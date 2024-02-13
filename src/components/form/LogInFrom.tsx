@@ -68,7 +68,7 @@ try {
 					<input
 						type="text"
 						placeholder='email:'
-						className='bg-light-yellow border-b-[1px] border-brown-light focus:outline-none'
+						className='bg-yellow-light border-b-[1px] border-brown-light focus:outline-none'
 						onChange={(e) => handleStateChange('email', e.target.value)}
 					/>
 			</div>
@@ -76,7 +76,7 @@ try {
 				<input
 					type={showPassword ? 'text' : 'password'}
 					placeholder='password'
-					className='bg-light-yellow border-b-[1px] border-brown-light focus:outline-none description'
+					className='bg-yellow-light border-b-[1px] border-brown-light focus:outline-none marcellus'
 					onChange={(e) => handleStateChange('password', e.target.value)}
 					/>
 					<div className=''>
