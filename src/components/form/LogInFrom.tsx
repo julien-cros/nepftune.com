@@ -31,7 +31,7 @@ const LogInFrom = () => {
 // TODO: create alert component and message error password or email
 	const handleFormSubmit = async () => {
 
-		try {
+try {
       const response = await fetch("/api/user", {
         method: "POST",
         headers: {
@@ -44,13 +44,13 @@ const LogInFrom = () => {
       });
 
       if (!response.ok)
-				router.push('/login')
+			router.push('/login')
 			;
 
       const { token } = await response.json();
       document.cookie = `token=${token}; path=/`;
       router.push("/dashboard");
-    } catch (error) {
+} catch (error) {
 			alert('login failed');
     }
 	}
@@ -59,6 +59,7 @@ const LogInFrom = () => {
 
 	return (
 		<form className="flex flex-col justify-center items-center gap-10"
+		action={handleFormSubmit}
 		onSubmit={() => {
 			handleFormSubmit();
 		}}
