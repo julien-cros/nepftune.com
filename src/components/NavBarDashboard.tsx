@@ -6,7 +6,7 @@ import { useState } from "react";
 import { MagnifyingGlassIcon, PlusIcon } from "@heroicons/react/24/solid";
 
 const NavBarDashboard = () => {
-	const router = useRouter();
+  const router = useRouter();
   const [searchclick, setSearchClick] = useState(false);
 
   return (
@@ -28,18 +28,22 @@ const NavBarDashboard = () => {
             className="w-5 h-5 text-brown"
           />
         </div>
-        <button className="bg-brown text-yellow-light py-2 px-4 rounded-lg text-sm flex items-center gap-2 marcellus"
-				onClick={() => router.push("/createPostAlbum")}
-				>
+        <button
+          className="bg-brown text-yellow-light py-2 px-4 rounded-lg text-sm flex items-center gap-2 marcellus"
+          onClick={() => router.push("/createPostAlbum/post")}
+        >
           <div className="flex justify-center items-center px-1	 py-1 border-[1px] border-l rounded-full">
             <PlusIcon className="w-3 h-3 text-yellow-light" />
           </div>
           New Post
         </button>
-        <button className="text-brown bg-ligh-yellow border-[1px] border-brown py-2 px-4 rounded-lg text-sm flex items-center gap-2 marcellus">
-					<div className="flex justify-center items-center px-1	 py-1 border-[1px] border-brown rounded-full">
-          <PlusIcon className="w-3 h-3 text-brown" />
-					</div>
+        <button
+          className="text-brown bg-ligh-yellow border-[1px] border-brown py-2 px-4 rounded-lg text-sm flex items-center gap-2 marcellus"
+          onClick={() => router.push("/createPostAlbum/album")}
+        >
+          <div className="flex justify-center items-center px-1	 py-1 border-[1px] border-brown rounded-full">
+            <PlusIcon className="w-3 h-3 text-brown" />
+          </div>
           New Album
         </button>
       </div>
