@@ -11,7 +11,7 @@ const dashboard = () => {
 
   useEffect(() => {
     const token = Cookies.get("token");
-
+		
     if (!token) {
       router.push("/login");
     }
@@ -36,7 +36,30 @@ const dashboard = () => {
   }, [router]);
   return (
     <div className="w-full h-ull flex justify-center items-center">
-      dashboard
+			{/* button new Post/album */}
+      <div className="w-full flex justify-start items-end">
+				<button>
+					ok
+				</button>
+				<button>
+					ok
+				</button>
+			</div>
+
+			{/* update post */}
+			<div>
+
+			</div>
+
+			{/* update photo */}
+			<div>
+
+			</div>
+
+			{/* update home */}
+			<div>
+
+			</div>
     </div>
   );
 };
