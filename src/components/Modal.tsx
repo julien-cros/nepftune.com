@@ -10,7 +10,7 @@ const Modal = ({ children }: { children: ReactNode }) => {
 	const router = useRouter();
 
 	const onDismiss = useCallback(() => {
-		router.push("/");
+		router.back();
 	}, [router]);
 
 	const handleClick = useCallback((e: React.MouseEvent) => {
@@ -20,11 +20,11 @@ const Modal = ({ children }: { children: ReactNode }) => {
 	}, [onDismiss, overlay]);
 
   return (
-	<div ref={overlay} className="fixed z-10 left-0 right-0 top-0 bottom-0 mx-auto bg-black/80" onClick={handleClick}>
+	<div ref={overlay} className="fixed z-50 left-0 right-0 top-0 bottom-0 mx-auto bg-black/80" onClick={handleClick}>
 		<button type="button" onClick={onDismiss}  className="absolute top-4 right-8">
 		< XMarkIcon className="w-5 h-5" />
 		</button>
-		<div ref={wrapper} className="modal_wrapper">
+		<div ref={wrapper} className="absolute h-4/5 w-4/5 rounded-t-2xl bg-yellow-light bottom-0 right-32">
 			{children}
 		</div>
 	</div>

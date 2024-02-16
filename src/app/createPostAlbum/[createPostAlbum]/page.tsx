@@ -56,7 +56,7 @@ const createPostAlbum = ({ params }: ParamsProps ) => {
 
 	return (
 		<Modal>
-			<h2 className='text-xl text-brown-dark'>Create a new {path}</h2>
+			<h2 className='text-5xl text-brown-dark flex justify-center items-center pt-10'>Create a new {path}</h2>
 			<CreateNew type={path}/>
 		</Modal>
 	)
